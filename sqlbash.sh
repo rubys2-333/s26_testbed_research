@@ -2,7 +2,7 @@
 # SQL MACHINE
 
 sudo apt update
-sudo apt install curl
+sudo apt install -y curl
 
 # configure netplan stuff
 curl https://raw.githubusercontent.com/rubys2-333/s26_testbed_research/refs/heads/main/sql-00-installer-config.yaml -o 00-installer-config.yaml
@@ -10,7 +10,7 @@ sudo mv 00-installer-config.yaml /etc/netplan/
 sudo netplan apply
 
 # now for the mysql server
-sudo apt install mysql-server
+sudo apt install -y mysql-server
 sudo mysql <<EOF
 CREATE DATABASE IF NOT EXISTS users;
 USE users;
