@@ -30,25 +30,3 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow from 192.168.56.10 to any port 3306
 sudo ufw enable
-
-
-# FLASK MACHINE
-#!/bin/bash
-
-sudo apt update
-sudo apt install curl
-
-# configure netplan stuff
-curl https://raw.githubusercontent.com/rubys2-333/s26_testbed_research/refs/heads/main/flask-00-installer-config.yaml -o 00-installer-config.yaml
-sudo mv 00-installer-config.yaml /etc/netplan/
-sudo netplan apply
-
-# install app.py dependencies
-sudo apt install python3-pip
-pip install flask
-pip install mysql-connector-python 
-
-# install app.py and run
-curl https://raw.githubusercontent.com/rubys2-333/s26_testbed_research/refs/heads/main/app.py -o app.py
-python3 -m flask run
-
