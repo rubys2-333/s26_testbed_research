@@ -21,7 +21,7 @@ print(out)
 EOF
 
 # generate the passwords for the user array
-python3 ./create_passwords.py ${users[@]} > passwords.txt
+python3 ./create_passwords.py "${users[@]}" > passwords.txt
 
 # change those passwords
 cat passwords.txt | sudo chpasswd
