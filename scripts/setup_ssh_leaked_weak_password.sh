@@ -7,8 +7,8 @@ PASSWORD=sopmac6yelhsa
 SSHDPATH="/etc/ssh/sshd_config"
 
 # ensure password authentication is on
-sed -i 's/^#PasswordAuthentication/PasswordAuthentication/' $SSHDPATH
-sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' $SSHDPATH
+sudo sed -i 's/^#PasswordAuthentication/PasswordAuthentication/' $SSHDPATH
+sudo sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' $SSHDPATH
 
 # add user to log in to
 sudo useradd -m $USERNAME

@@ -1,9 +1,7 @@
 #!/bin/bash
 # SQL MACHINE
 
-sudo apt update
-sudo apt install -y sha256sum
-
+echo "creating users database"
 # We need a set of secure passwords and one bad password. mgebril's password can be found in rockyou.txt.
 users=(
     [jdonin]="SoSk47eI6ieeqDio"
@@ -22,8 +20,8 @@ done
 
 password_db=$(IFS=,; echo "${sql_values[*]}")
 
-
 # now for the mysql server
+echo "creating mysql service"
 sudo apt install -y mysql-server
 
 sudo mysql <<EOF
