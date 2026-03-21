@@ -24,7 +24,7 @@ EOF
 python3 ./create_passwords.py ${users[@]} > passwords.txt
 
 # change those passwords
-echo passwords.txt | sudo chpasswd
+cat passwords.txt | sudo chpasswd
 
 # cleanup
 rm create_passwords.py
