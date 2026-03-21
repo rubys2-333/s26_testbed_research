@@ -2,4 +2,4 @@
 ./ssh_disallow_root_login.sh
 
 # precaution 2: change the 
-./ssh_change_user_root_passwords.sh
+./system_change_user_root_passwords.sh

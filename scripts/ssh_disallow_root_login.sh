@@ -1,4 +1,6 @@
 SSHDPATH="/etc/ssh/sshd_config"
 
-sed -i 's/^#PermitRootLogin/PermitRootLogin/' $SSHDPATH
-sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' $SSHDPATH
+sudo sed -i 's/^#PermitRootLogin/PermitRootLogin/' $SSHDPATH
+sudo sed -i 's/^PermitRootLogin .*/PermitRootLogin no/' $SSHDPATH
+
+sudo systemctl restart ssh
