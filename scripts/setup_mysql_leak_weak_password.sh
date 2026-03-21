@@ -3,7 +3,7 @@
 
 echo "creating users database"
 # We need a set of secure passwords and one bad password. mgebril's password can be found in rockyou.txt.
-users=(
+declare -A users=(
     [jdonin]="SoSk47eI6ieeqDio"
     [breaper5]="FcjLXGhvjxVsWt1R"
     [lkotlus]="cu5KbU7svreG7g6k"
@@ -31,7 +31,9 @@ CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, username VA
 INSERT INTO users (username, password) VALUES $password_db;
 
 CREATE USER IF NOT EXISTS 'flask'@'10.0.2.%' IDENTIFIED BY 'sudo';
+CREATE USER IF NOT EXISTS 'sql'@'localhost' IDENTIFIED BY 'sudo';
 GRANT ALL PRIVILEGES ON users.* TO 'flask'@'10.0.2.%';
+GRANT ALL PRIVILEGES ON users.* TO 'sql'@'localhost';
 FLUSH PRIVILEGES;
 EOF
 
