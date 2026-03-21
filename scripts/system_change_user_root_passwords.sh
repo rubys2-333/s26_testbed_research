@@ -4,7 +4,7 @@
 touch ignore_users.txt
 
 # get array of users from /etc/shadow that are not system users
-mapfile users < <(awk -F: '$3>=1000||$1=="root" {print $1}' /etc/passwd | grep -v -x -f ignore_users.txt)
+mapfile users < <(awk -F: '($3>=1000||$1=="root")&&($1!="nobody") {print $1}' /etc/passwd | grep -v -x -f ignore_users.txt)
 
 # small python script that will generate some random passwords for each user
 cat <<EOF > create_passwords.py
