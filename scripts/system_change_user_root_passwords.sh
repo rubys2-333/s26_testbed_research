@@ -15,7 +15,7 @@ characters = string.ascii_letters + string.digits
 out = ''
 for user in sys.argv[1:]:
     passwd = ''.join([random.choice(characters) for _ in range(16)])
-    out += f"{user}:{passwd}\n"
+    out += f"{user.strip()}:{passwd}\n"
 out = out.strip()
 print(out)
 EOF
